@@ -1,13 +1,16 @@
 {
-  "name": "project",
-  "dependencies": {},
-  "devDependencies": {
-    "webpack": "^2.0",
-    "ts-loader": "*",
-    "typescript": "*"
-  },
+  "name": "Scrim-s01uao4",
+  "description": "",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack -w"
+    "watch": "webpack -w",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "webpack": "*"
+  },
+  "devDependencies": {
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.3",
+    "webpack-cli": "^5.1.4"
   }
 }
