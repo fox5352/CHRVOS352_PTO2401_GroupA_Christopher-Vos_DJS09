@@ -9,6 +9,7 @@ export type Review = {
   stars: number;
   loyaltyUser: LoyaltyUser;
   date: string;
+  description?: string;
 };
 
 export type User = {

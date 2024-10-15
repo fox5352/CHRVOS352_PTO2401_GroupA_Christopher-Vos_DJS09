@@ -37,7 +37,9 @@ const reviews: Review[] = [
     name: "Omar",
     stars: 4,
     loyaltyUser: LoyaltyUser.SILVER_USER,
+
     date: "27-03-2021",
+    description: "Great hosts, location was a bit further than said",
   },
 ];
 
