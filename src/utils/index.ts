@@ -1,7 +1,13 @@
+export enum LoyaltyUser {
+  GOLD_USER = "GOLD_USER",
+  SILVER_USER = "SILVER_USER",
+  BRONZE_USER = "BRONZE_USER",
+}
+
 export type Review = {
   name: string;
   stars: number;
-  loyaltyUser: boolean;
+  loyaltyUser: LoyaltyUser;
   date: string;
 };
 
@@ -31,9 +37,9 @@ export function showReviewTotal(
   reviewTotalDisplay: HTMLElement,
   value: number,
   reviewer: string,
-  isLoyalty: boolean
+  isLoyalty: LoyaltyUser
 ) {
-  const iconDisplay = isLoyalty ? "⭐" : "";
+  const iconDisplay = isLoyalty == LoyaltyUser.GOLD_USER ? "⭐" : "";
   reviewTotalDisplay.innerHTML =
     "review total " +
     value.toString() +
