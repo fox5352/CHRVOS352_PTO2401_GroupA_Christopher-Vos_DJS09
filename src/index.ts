@@ -9,6 +9,7 @@ import {
   User,
   Review,
   LoyaltyUser,
+  Permissions,
 } from "./utils/index";
 // header tags
 const returningUserDisplay = document.getElementById("returning-user")!;
@@ -48,6 +49,7 @@ const you: User = {
   firstName: "Bobby",
   lastName: "Brown",
   isReturning: true,
+  permissions: Permissions.ADMIN,
   age: 35,
   stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
 };
@@ -70,7 +72,7 @@ const properties: Property[] = [
   {
     image: "images/poland-property.jpg",
     title: "Polish Cottage",
-    price: 34,
+    price: 30,
     location: {
       firstLine: "no 23",
       city: "Gdansk",
@@ -83,7 +85,7 @@ const properties: Property[] = [
   {
     image: "images/london-property.jpg",
     title: "London Flat",
-    price: 23,
+    price: 25,
     location: {
       firstLine: "flat 15",
       city: "London",
@@ -110,7 +112,7 @@ populateUser(
   you.firstName
 );
 
-MapPropertyToDom(propertiesTag, properties);
+MapPropertyToDom(propertiesTag, properties, you.permissions);
 
 (function (footer: HTMLElement) {
   let locationStats: [string, string, number] = ["cpt", "3:42", 21];

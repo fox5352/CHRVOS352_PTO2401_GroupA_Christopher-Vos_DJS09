@@ -4,6 +4,11 @@ export enum LoyaltyUser {
   BRONZE_USER = "BRONZE_USER",
 }
 
+export enum Permissions {
+  ADMIN = "ADMIN",
+  READ_ONLY = "READ_ONLY",
+}
+
 export type Review = {
   name: string;
   stars: number;
@@ -16,14 +21,17 @@ export type User = {
   firstName: string;
   lastName: string;
   isReturning: boolean;
+  permissions: Permissions;
   age: number;
   stayedAt: string[];
 };
 
-export interface Property {
+export type Price = 45 | 30 | 25;
+
+export type Property = {
   image: string;
   title: string;
-  price: number;
+  price: Price;
   location: {
     firstLine: string;
     city: string;
@@ -32,7 +40,7 @@ export interface Property {
   };
   contact: [number, string];
   isAvailable: boolean;
-}
+};
 
 export function showReviewTotal(
   reviewTotalDisplay: HTMLElement,
@@ -74,8 +82,28 @@ export function buildPropertyElement(data: Property) {
   return card;
 }
 
-export function MapPropertyToDom(tag: HTMLElement, data: Property[]) {
-  const cards = data.map((cardData) => buildPropertyElement(cardData));
+export function showDetails(
+  authStatus: boolean | Permissions,
+  tag: HTMLDivElement,
+  price: number
+) {
+  if (authStatus) {
+    const priceDisplay = document.createElement("div");
+    priceDisplay.innerHTML = price.toString() + " / night";
+    tag.append(priceDisplay);
+  }
+}
+
+export function MapPropertyToDom(
+  tag: HTMLElement,
+  data: Property[],
+  authStatus: boolean | Permissions
+) {
+  const cards = data.map((cardData) => {
+    const card = buildPropertyElement(cardData);
+    showDetails(authStatus, card, cardData.price);
+    return card;
+  });
 
   tag.append(...cards);
 }
