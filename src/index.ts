@@ -1,12 +1,14 @@
 // Object Types Challenge
 // Based on what we discussed we need to make up our Property Objects and array,
 // can you create that array, making sure to assign the correct Types?
-import { showReviewTotal, populateUser } from "./utils/index";
-
-const reviewTotalDisplay = document.getElementById("reviews")!;
+import { showReviewTotal, populateUser, MapPropertyToDom } from "./utils/index";
+// header tags
 const returningUserDisplay = document.getElementById("returning-user")!;
 const userNameDisplay = document.getElementById("user")!;
 
+// body tags
+const reviewTotalDisplay = document.getElementById("reviews")!;
+const propertiesTag = document.getElementById("properties")!;
 let isOpen: boolean;
 
 // Reviews
@@ -120,3 +122,5 @@ populateUser(
   you.isReturning,
   you.firstName
 );
+
+MapPropertyToDom(propertiesTag, properties);
