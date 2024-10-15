@@ -1,3 +1,32 @@
+export type Review = {
+  name: string;
+  stars: number;
+  loyaltyUser: boolean;
+  date: string;
+};
+
+export type User = {
+  firstName: string;
+  lastName: string;
+  isReturning: boolean;
+  age: number;
+  stayedAt: string[];
+};
+
+export interface Property {
+  image: string;
+  title: string;
+  price: number;
+  location: {
+    firstLine: string;
+    city: string;
+    code: number;
+    country: string;
+  };
+  contact: [number, string];
+  isAvailable: boolean;
+}
+
 export function showReviewTotal(
   reviewTotalDisplay: HTMLElement,
   value: number,
@@ -24,20 +53,6 @@ export function populateUser(
     returningUserDisplay.innerHTML = "back";
   }
   userNameDisplay.innerHTML = userName;
-}
-
-interface Property {
-  image: string;
-  title: string;
-  price: number;
-  location: {
-    firstLine: string;
-    city: string;
-    code: number;
-    country: string;
-  };
-  contact: string;
-  isAvailable: boolean;
 }
 
 export function buildPropertyElement(data: Property) {

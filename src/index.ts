@@ -1,23 +1,25 @@
 // Object Types Challenge
 // Based on what we discussed we need to make up our Property Objects and array,
 // can you create that array, making sure to assign the correct Types?
-import { showReviewTotal, populateUser, MapPropertyToDom } from "./utils/index";
+import {
+  showReviewTotal,
+  populateUser,
+  MapPropertyToDom,
+  Property,
+  User,
+  Review,
+} from "./utils/index";
 // header tags
 const returningUserDisplay = document.getElementById("returning-user")!;
 const userNameDisplay = document.getElementById("user")!;
-
 // body tags
 const reviewTotalDisplay = document.getElementById("reviews")!;
 const propertiesTag = document.getElementById("properties")!;
-let isOpen: boolean;
+// footer tags
+const footerTag = document.getElementById("footer")!;
 
 // Reviews
-const reviews: {
-  name: string;
-  stars: number;
-  loyaltyUser: boolean;
-  date: string;
-}[] = [
+const reviews: Review[] = [
   {
     name: "Sheia",
     stars: 5,
@@ -39,13 +41,7 @@ const reviews: {
 ];
 
 // User
-const you: {
-  firstName: string;
-  lastName: string;
-  isReturning: boolean;
-  age: number;
-  stayedAt: string[];
-} = {
+const you: User = {
   firstName: "Bobby",
   lastName: "Brown",
   isReturning: true,
@@ -54,19 +50,7 @@ const you: {
 };
 
 //Properties
-const properties: {
-  image: string;
-  title: string;
-  price: number;
-  location: {
-    firstLine: string;
-    city: string;
-    code: number;
-    country: string;
-  };
-  contact: string;
-  isAvailable: boolean;
-}[] = [
+const properties: Property[] = [
   {
     image: "images/colombia-property.jpg",
     title: "Colombian Shack",
@@ -77,7 +61,7 @@ const properties: {
       code: 45632,
       country: "Colombia",
     },
-    contact: "marywinkle@gmail.com",
+    contact: [+1123495082908, "marywinkle@gmail.com"],
     isAvailable: true,
   },
   {
@@ -90,7 +74,7 @@ const properties: {
       code: 343903,
       country: "Poland",
     },
-    contact: "garydavis@hotmail.com",
+    contact: [+1123495082908, "garydavis@hotmail.com"],
     isAvailable: false,
   },
   {
@@ -103,7 +87,7 @@ const properties: {
       code: 35433,
       country: "United Kingdom",
     },
-    contact: "andyluger@aol.com",
+    contact: [+1123495082908, "andyluger@aol.com"],
     isAvailable: true,
   },
 ];
@@ -124,3 +108,9 @@ populateUser(
 );
 
 MapPropertyToDom(propertiesTag, properties);
+
+(function (footer: HTMLElement) {
+  let locationStats: [string, string, number] = ["cpt", "3:42", 21];
+  footer.innerHTML =
+    locationStats[0] + " " + locationStats[1] + " " + locationStats[2] + "°";
+})(footerTag);
