@@ -5,15 +5,18 @@ import {
   showReviewTotal,
   populateUser,
   mapPropertyToDom,
+  addReviews,
+  populateFooter,
+  bindEventListener,
+} from "./utils/index";
+
+import {
   Property,
   User,
   Review,
   LoyaltyUser,
   Permissions,
-  addReviews,
-  populateFooter,
-  bindEventListener,
-} from "./utils/index";
+} from "./types/index";
 // header tags
 const returningUserDisplay = document.getElementById("returning-user")!;
 const userNameDisplay = document.getElementById("user")!;
