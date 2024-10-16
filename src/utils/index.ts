@@ -9,26 +9,26 @@ export enum Permissions {
   READ_ONLY = "READ_ONLY",
 }
 
-export type Review = {
+export interface Review {
   name: string;
   stars: number;
   loyaltyUser: LoyaltyUser;
   date: string;
   description?: string;
-};
+}
 
-export type User = {
+export interface User {
   firstName: string;
   lastName: string;
   isReturning: boolean;
   permissions: Permissions;
   age: number;
   stayedAt: string[];
-};
+}
 
 export type Price = 45 | 30 | 25;
 
-export type Property = {
+export interface Property {
   image: string;
   title: string;
   price: Price;
@@ -40,7 +40,7 @@ export type Property = {
   };
   contact: [number, string];
   isAvailable: boolean;
-};
+}
 
 export function showReviewTotal(
   reviewTotalDisplay: HTMLElement,
