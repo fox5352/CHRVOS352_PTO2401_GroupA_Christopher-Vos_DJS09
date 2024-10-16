@@ -35,7 +35,7 @@ export interface Property {
   location: {
     firstLine: string;
     city: string;
-    code: number;
+    code: number | string;
     country: string;
   };
   contact: [number, string];
