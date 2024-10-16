@@ -1,13 +1,15 @@
 import { Review } from "../types";
 
 export default class MainProperty {
-  src: string;
+  private src: string;
+  private body: HTMLElement;
   title: string;
   reviews: Review[];
   constructor(src: string, title: string, reviews: Review[]) {
     this.src = src;
     this.title = title;
     this.reviews = reviews;
+    this.body = this.build();
   }
 
   private build(): HTMLElement {
@@ -17,6 +19,6 @@ export default class MainProperty {
   }
 
   get getElement(): HTMLElement {
-    return this.build();
+    return this.body;
   }
 }
