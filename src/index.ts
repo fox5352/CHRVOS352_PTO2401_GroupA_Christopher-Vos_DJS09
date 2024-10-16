@@ -4,17 +4,22 @@
 import {
   showReviewTotal,
   populateUser,
-  MapPropertyToDom,
+  mapPropertyToDom,
   Property,
   User,
   Review,
   LoyaltyUser,
   Permissions,
+  addReviews,
 } from "./utils/index";
 // header tags
 const returningUserDisplay = document.getElementById("returning-user")!;
 const userNameDisplay = document.getElementById("user")!;
 // body tags
+const reviewContainer = document.querySelector(".reviews")!;
+const container = document.querySelector(".container")!;
+const button = document.querySelector("button")!;
+
 const reviewTotalDisplay = document.getElementById("reviews")!;
 const propertiesTag = document.getElementById("properties")!;
 // footer tags
@@ -112,7 +117,15 @@ populateUser(
   you.firstName
 );
 
-MapPropertyToDom(propertiesTag, properties, you.permissions);
+mapPropertyToDom(propertiesTag, properties, you.permissions);
+
+// event listeners
+button.addEventListener("click", () => {
+  addReviews(reviewContainer, reviews);
+
+  container.removeChild(button);
+});
+// footer function
 
 (function (footer: HTMLElement) {
   let locationStats: [string, string, number] = ["cpt", "3:42", 21];
