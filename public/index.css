@@ -5,6 +5,7 @@
   background-image: url("images/sofa-logo.png");
   margin: 20px;
 }
+
 body {
   display: flex;
   margin: 0;
@@ -30,6 +31,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
 .user-container {
   margin: 20px;
 }
@@ -50,8 +52,6 @@ body {
 .footer {
   width: 100%;
   background-color: lightcoral;
-  position: absolute;
-  bottom: 0;
   text-align: center;
   padding: 30px;
   color: white;

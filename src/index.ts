@@ -17,6 +17,7 @@ import {
   LoyaltyUser,
   Permissions,
 } from "./types/index";
+import MainProperty from "./utils/MainProprty";
 // header tags
 const returningUserDisplay = document.getElementById("returning-user")!;
 const userNameDisplay = document.getElementById("user")!;
@@ -99,7 +100,7 @@ const properties: Property[] = [
     location: {
       firstLine: "flat 15",
       city: "London",
-      code: 35433,
+      code: "SW4 5XW",
       country: "United Kingdom",
     },
     contact: [+1123495082908, "andyluger@aol.com"],
@@ -131,6 +132,24 @@ const unSubButton = bindEventListener(button, "click", () => {
   // Unsubscribe the event listener
   unSubButton();
 });
+
+let yourMainProperty = new MainProperty(
+  "images/italian-property.jpg",
+  "Italian House",
+  [
+    {
+      name: "Olive",
+      stars: 5,
+      loyaltyUser: LoyaltyUser.GOLD_USER,
+      date: "12-04-2021",
+    },
+  ]
+);
+
+const mainImageContainer = document.querySelector(".main-image")!;
+const image = document.createElement("img");
+image.setAttribute("src", yourMainProperty.src);
+mainImageContainer.appendChild(image);
 
 // footer function
 populateFooter(footerTag);
