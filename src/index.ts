@@ -106,6 +106,19 @@ const properties: Property[] = [
     contact: [+1123495082908, "andyluger@aol.com"],
     isAvailable: true,
   },
+  {
+    image: "images/malaysian-hotel.jpeg",
+    title: "Malia Hotel",
+    price: 30,
+    location: {
+      firstLine: "Room 4",
+      city: "Malia",
+      code: 45334,
+      country: "Malaysia",
+    },
+    contact: [+60349822083, "lee34@gmail.com"],
+    isAvailable: false,
+  },
 ];
 
 // Functions
@@ -133,7 +146,7 @@ const unSubButton = bindEventListener(button, "click", () => {
   unSubButton();
 });
 
-let yourMainProperty = new MainProperty(
+let MainPropertyImage = new MainProperty(
   "images/italian-property.jpg",
   "Italian House",
   [
@@ -147,9 +160,7 @@ let yourMainProperty = new MainProperty(
 );
 
 const mainImageContainer = document.querySelector(".main-image")!;
-const image = document.createElement("img");
-image.setAttribute("src", yourMainProperty.src);
-mainImageContainer.appendChild(image);
+mainImageContainer.appendChild(MainPropertyImage.getElement);
 
 // footer function
 populateFooter(footerTag);
