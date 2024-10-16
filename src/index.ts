@@ -1,6 +1,9 @@
 // Object Types Challenge
 // Based on what we discussed we need to make up our Property Objects and array,
 // can you create that array, making sure to assign the correct Types?
+import { MainProperty } from "./classes";
+import { LoyaltyUser, Permissions } from "./enums";
+import { Property, Review, User } from "./interfaces";
 import {
   showReviewTotal,
   populateUser,
@@ -8,27 +11,21 @@ import {
   addReviews,
   populateFooter,
   bindEventListener,
-} from "./utils/index";
+} from "./utils";
 
-import {
-  Property,
-  User,
-  Review,
-  LoyaltyUser,
-  Permissions,
-} from "./types/index";
-import MainProperty from "./utils/MainProprty";
-// header tags
+// DOM Element Selections
+// Header elements
 const returningUserDisplay = document.getElementById("returning-user")!;
 const userNameDisplay = document.getElementById("user")!;
-// body tags
+
+// Body elements
 const reviewContainer = document.querySelector(".reviews")!;
 const container = document.querySelector(".container")!;
 const button = document.querySelector("button")!;
-
 const reviewTotalDisplay = document.getElementById("reviews")!;
 const propertiesTag = document.getElementById("properties")!;
-// footer tags
+
+// Footer element
 const footerTag = document.getElementById("footer")!;
 
 // Reviews
