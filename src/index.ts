@@ -11,6 +11,8 @@ import {
   LoyaltyUser,
   Permissions,
   addReviews,
+  populateFooter,
+  bindEventListener,
 } from "./utils/index";
 // header tags
 const returningUserDisplay = document.getElementById("returning-user")!;
@@ -120,15 +122,12 @@ populateUser(
 mapPropertyToDom(propertiesTag, properties, you.permissions);
 
 // event listeners
-button.addEventListener("click", () => {
+const unSubButton = bindEventListener(button, "click", () => {
   addReviews(reviewContainer, reviews);
-
   container.removeChild(button);
+  // Unsubscribe the event listener
+  unSubButton();
 });
-// footer function
 
-(function (footer: HTMLElement) {
-  let locationStats: [string, string, number] = ["cpt", "3:42", 21];
-  footer.innerHTML =
-    locationStats[0] + " " + locationStats[1] + " " + locationStats[2] + "°";
-})(footerTag);
+// footer function
+populateFooter(footerTag);
